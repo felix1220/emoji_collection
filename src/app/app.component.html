@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!--
+  <div class="row">
+    <div class="col-12">
+      <app-tree-wrapper></app-tree-wrapper>
+    </div>
+  </div>
+-->
+  <div class="row">
+    <div style="width: 100%" class="col-12">
+      <div class="row">
+        <div class="col-9">
+          <canvas id="canvasPuzzle" width="600" height="600" ></canvas>
+        </div>
+        <div class="col-3"  *ngIf="allLoaded">
+          <app-rewrite (updateEmoji)="updateEmoji($event)"></app-rewrite>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12" *ngIf="allLoaded">
+          <app-split-sprite [icons]="allEmojis" [formEmoji]="formEmoji"></app-split-sprite>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mt-4 row">
+    <div class=col-12>
+      <canvas id="canvasOriginal" width="900" height="900" ></canvas>
+    </div>
+  </div>
+
+<!--
+<app-scroller></app-scroller>
+-->
+
+
+<!--
+<app-doughnout-chart></app-doughnout-chart>
+-->
+</div>

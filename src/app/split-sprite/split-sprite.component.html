@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row" *ngIf="emojiRows.length">
+        <div class="col-3">
+            Select Row:
+        </div>
+        <div class="col-3">
+            <select [(ngModel)]="rowSelected" (change)="OnChangeItem($event)">
+                <option *ngFor="let row of emojiRows" [ngValue]="row.id">{{ row.value }}</option>
+              </select>
+        </div>
+    </div>
+    <div class="row" *ngIf="emojiRows.length">
+        <div class="col-3">
+            Select Up to:
+        </div>
+        <div class="col-3">
+            <select [(ngModel)]="upToVal" >
+                <option *ngFor="let row of upToList" [ngValue]="row.id">{{ row.value }}</option>
+              </select>
+        </div>
+    </div>
+</div>
+<canvas id="canvas" width="900" height="900" ></canvas>

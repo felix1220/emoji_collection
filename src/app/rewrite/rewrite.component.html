@@ -1,0 +1,157 @@
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            Select From Row:
+        </div>
+        <div class="col-3">
+            <select [(ngModel)]="row1">
+                <option *ngFor="let row of emojiRows" [ngValue]="row.id">{{ row.value }}</option>
+              </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-9">
+            Select To Row:
+        </div>
+        <div class="col-3">
+            <select [(ngModel)]="row2">
+                <option *ngFor="let row of emojiRows" [ngValue]="row.id">{{ row.value }}</option>
+              </select>
+        </div>
+
+    </div>
+    <div class="row">
+       <div class="col-6">
+        <button (click)="mapEmojis()">Submit</button>
+       </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+    <div class="mt-3 row" *ngIf="emojiRows.length">
+        <div class="col-9">
+            Select Row:
+        </div>
+        <div class="col-3">
+            <select [(ngModel)]="rowSelected" (change)="onChange($event)">
+                <option *ngFor="let row of emojiRows" [ngValue]="row.id">{{ row.value }}</option>
+              </select>
+        </div>
+    </div>
+    <div class="row" *ngIf="emojiRows.length">
+        <div class="col-9">
+            Select Up to:
+        </div>
+        <div class="col-3">
+            <select [(ngModel)]="upToVal" >
+                <option *ngFor="let row of upToList" [ngValue]="row.id">{{ row.value }}</option>
+              </select>
+        </div>
+    </div>
+    <div class="form-container mt-3 row">
+        <div class="col-12" *ngFor="let item of formItems">
+            <div style="width: 100%;">
+                <div style="width: 100%" class="row">
+                    <div class="col-4">
+                        <span>
+                            X: {{ item.id }}
+                        </span>
+                        <span>
+                            <input type="text" [value]="item.x"  id="{{'posX' + item.id }}" />
+                        </span>
+                    </div>
+                    <div class="col-4">
+                        <span>
+                            Y:
+                        </span>
+                        <span>
+                            <input type="text" [value]="item.y"  id="{{'posY' + item.id }}"/>
+                        </span>
+                    </div>
+                </div>
+                <div style="width: 100%" class="row">
+                    <div class="col-6">
+                        <span>
+                            width:
+                        </span>
+                        <span>
+                            <input type="text" [value]="item.width" id="{{'width' + item.id }}" />
+                        </span>
+                    </div>
+                    <div class="col-6">
+                        <span>
+                            height:
+                        </span>
+                        <span>
+                            <input type="text" [value]="item.height"  id="{{'height' + item.id }}"/>
+                        </span>
+                    </div>
+                </div>
+                <div style="width: 100%" class="row">
+                    <div class="col-6">
+                        <span>
+                            canvasX
+                        </span>
+                        <span>
+                            <input type="text" [value]="item.canvasX" id="{{'canvasX' + item.id }}"/>
+                        </span>
+                    </div>
+                    <div class="col-6">
+                        <span>
+                            canvasY
+                        </span>
+                        <span>
+                            <input type="text" [value]="item.canvasY" id="{{'canvasY' + item.id }}"/>
+                        </span>
+                    </div>
+                </div>
+                <div style="width: 100%" class="row">
+                    <div class="col-6">
+                        <span>
+                            canvasWidth
+                        </span>
+                        <span>
+                            <input type="text" [value]="item.canvasWidth" id="{{'canvasWidth' + item.id }}" />
+                        </span>
+                    </div>
+                    <div class="col-6">
+                        <span>
+                            canvasHeight
+                        </span>
+                        <span>
+                            <input type="text" [value]="item.canvasHeight" id="{{'canvasHeight' + item.id }}"/>
+                        </span>
+                    </div>
+                </div>
+                <div style="width: 100%" class="row">
+                    <div class="col-12">
+                        <span>
+                            Name:
+                        </span>
+                        <span>
+                            {{ item.name }}
+                        </span>
+                    </div>
+                </div>
+                <div style="width: 100%" class="row">
+                    <div class="col-12">
+                        <hr style="width: 100%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+    </div>
+    <div class="mt-3 row">
+        <div class="col-4">
+            <button (click)="saveUpdates()">Submit</button>
+        </div>
+        <div class="col-4">
+            <button (click)="saveEmojiChanges()">Save</button>
+        </div>
+    </div>
+
+</div>

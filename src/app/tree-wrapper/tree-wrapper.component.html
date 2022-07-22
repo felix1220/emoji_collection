@@ -1,0 +1,14 @@
+<!--
+<tree-ngx [nodeItems]="nodeItems"> </tree-ngx>
+-->
+<div class="row">
+    <div class="col-12">
+        <tree-ngx [nodeItems]="nodeItems" (select)="treeNgx()"> </tree-ngx>
+    </div>
+</div>
+<div class="row" *ngIf="isTreeLoaded">
+    <div class="col-12">
+        <tree-root [nodes]="nodes" [options]="options" (toggleExpanded)="onEvent($event)"
+        (activate)="onActiveEvent($event)"></tree-root>
+    </div>
+</div>
